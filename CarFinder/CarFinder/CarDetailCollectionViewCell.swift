@@ -28,9 +28,9 @@ class CarDetailCollectionViewCell: UICollectionViewCell {
         
 //        debugPrint("CarType", self.carDetail!)
         if let downloadurl = carDetail?.vehicle_pic_absolute_url {
-            let url  = URL(string: downloadurl)
+            guard let url  = URL(string: downloadurl) else{ return }
             DispatchQueue.global().async {
-                let data = try? Data(contentsOf: url!)
+                let data = try? Data(contentsOf: url)
                 DispatchQueue.main.async {
                     self.carImageView.image = UIImage(data: data!)
                 }

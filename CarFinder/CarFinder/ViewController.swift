@@ -67,11 +67,10 @@ class ViewController: UIViewController {
                                                     from: jsonData)
             self.availableCars = carsData
         } catch {
-            print("decode error")
         }
     }
 }
-
+//MARK:- CollectionView Delegate
 extension ViewController: UICollectionViewDelegate,
 UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -90,7 +89,9 @@ UICollectionViewDataSource {
         let cardetail = self.availableCars[indexPath.row]
         if let lat = cardetail.lat, let lag = cardetail.lng {
             self.carMapView.centerToLocation(CLLocation(latitude: lat, longitude: lag))
+            self.reserveCarButton.isEnabled = true
         } else {
+            self.reserveCarButton.isEnabled = false
             self.carMapView.centerToLocation(initialLocation)
         }
         
@@ -137,6 +138,8 @@ private extension MKMapView {
         setRegion(coordinateRegion, animated: true)
     }
 }
+
+//MARK:- Annotation Class
 import MapKit
 import UIKit
 
