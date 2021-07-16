@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewController: UIViewController {
     var availableCars : [CarModel] = []
     let initialLocation = CLLocation(latitude: 37.773972, longitude:  -122.431297)
-    let sanFranciscoCityLocation = CarLocation(title: "San Francisco", coordinate: CLLocationCoordinate2D(latitude: 37.773972, longitude:  -122.431297), info: "Starting Location")
-    var carLocations: [CarLocation] = []
+    let sanFranciscoCityLocation = CarAnnotation(title: "San Francisco", coordinate: CLLocationCoordinate2D(latitude: 37.773972, longitude:  -122.431297), info: "Starting Location")
+    var carLocations: [CarAnnotation] = []
     var selectedCarDetail: CarModel?
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -35,13 +36,13 @@ class ViewController: UIViewController {
         if let jsonData = readVehicleData(forName: "Test -vehicles_data.")
         {
             parse(jsonData: jsonData)
-            var availableCar : CarLocation
+            var availableCar : CarAnnotation
             for cardetail in availableCars {
                 if let lat = cardetail.lat, let lag = cardetail.lng{
-                    availableCar = CarLocation(title:cardetail.license_plate_number + "\n" + cardetail.vehicle_type, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lag), info: cardetail.license_plate_number)
+                    availableCar = CarAnnotation(title:cardetail.license_plate_number + "\n" + cardetail.vehicle_type, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lag), info: cardetail.license_plate_number)
                     self.carMapView.addAnnotation(availableCar)
                 } else {
-                    availableCar = CarLocation(title: cardetail.vehicle_type, coordinate: CLLocationCoordinate2D(latitude: initialLocation.coordinate.latitude , longitude: initialLocation.coordinate.longitude), info: cardetail.license_plate_number)
+                    availableCar = CarAnnotation(title: cardetail.vehicle_type, coordinate: CLLocationCoordinate2D(latitude: initialLocation.coordinate.latitude , longitude: initialLocation.coordinate.longitude), info: cardetail.license_plate_number)
                 }
                 carLocations.append(availableCar)
             }
@@ -104,7 +105,7 @@ extension ViewController: MKMapViewDelegate {
         viewFor annotation: MKAnnotation
     ) -> MKAnnotationView? {
         
-        guard let annotation = annotation as? CarLocation else {
+        guard let annotation = annotation as? CarAnnotation else {
             return nil
         }
         
@@ -139,18 +140,3 @@ private extension MKMapView {
     }
 }
 
-//MARK:- Annotation Class
-import MapKit
-import UIKit
-
-class CarLocation: NSObject, MKAnnotation {
-    var title: String?
-    var coordinate: CLLocationCoordinate2D
-    var info: String
-    
-    init(title: String, coordinate: CLLocationCoordinate2D, info: String) {
-        self.title = title
-        self.coordinate = coordinate
-        self.info = info
-    }
-}

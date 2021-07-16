@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		315B713F26A1579900D35616 /* CarAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315B713E26A1579900D35616 /* CarAnnotation.swift */; };
 		31D02BF5269F581500AFA460 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D02BF4269F581500AFA460 /* AppDelegate.swift */; };
 		31D02BF7269F581500AFA460 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D02BF6269F581500AFA460 /* SceneDelegate.swift */; };
 		31D02BF9269F581500AFA460 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D02BF8269F581500AFA460 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		315B713E26A1579900D35616 /* CarAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarAnnotation.swift; sourceTree = "<group>"; };
 		31D02BF1269F581500AFA460 /* CarFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D02BF4269F581500AFA460 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31D02BF6269F581500AFA460 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				31D02BF4269F581500AFA460 /* AppDelegate.swift */,
 				31D02BF6269F581500AFA460 /* SceneDelegate.swift */,
 				31D02BF8269F581500AFA460 /* ViewController.swift */,
+				315B713E26A1579900D35616 /* CarAnnotation.swift */,
 				31D02C2A26A017A700AFA460 /* CarDetailCollectionViewCell.swift */,
 				31D02C26269F5CF700AFA460 /* CarModel.swift */,
 				31D02BFA269F581500AFA460 /* Main.storyboard */,
@@ -284,6 +287,7 @@
 				31D02C27269F5CF700AFA460 /* CarModel.swift in Sources */,
 				31D02BF9269F581500AFA460 /* ViewController.swift in Sources */,
 				31D02BF5269F581500AFA460 /* AppDelegate.swift in Sources */,
+				315B713F26A1579900D35616 /* CarAnnotation.swift in Sources */,
 				31D02C2B26A017A700AFA460 /* CarDetailCollectionViewCell.swift in Sources */,
 				31D02BF7269F581500AFA460 /* SceneDelegate.swift in Sources */,
 			);
